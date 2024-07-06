@@ -12,7 +12,7 @@ billiard==4.2.0
 bs4==0.0.1
 cachetools==5.3.1
 celery==5.3.1
-certifi==2024.2.2
+certifi==2024.7.4
 cffi==1.15.1
 charset-normalizer==3.1.0
 click==8.1.7
