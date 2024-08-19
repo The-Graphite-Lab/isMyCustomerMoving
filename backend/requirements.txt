@@ -66,7 +66,7 @@ kombu==5.3.1
 loguru==0.7.2
 lxml==4.9.3
 MarkupSafe==2.1.2
-modal==0.57.54
+modal==0.64.41
 numpy==1.26.2
 oauthlib==3.2.2
 packaging==23.1
