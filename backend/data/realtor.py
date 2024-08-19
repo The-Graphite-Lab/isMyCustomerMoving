@@ -20,17 +20,26 @@ def get_all_zipcodes(company, zip=None):
     # Initialization of variables
     company_object, zip_code_objects, zip_codes, zips = "", "", "", ""
     try:
+        print(f"Company: {company}")
         # Get distinct zip codes related to the company
         zip_codes = Client.objects.filter(company_id=company, active=True
                                           ).values_list(
                                               "zip_code", flat=True).distinct()
         print(f"Zip codes to process 1: {len(zip_codes)}")
+        # Fetch the first 10 records in zip_codes
+        first_10_records = zip_codes[:10]
+        for record in first_10_records:
+            print(f"Zip Code: {record.zip_code}, Last Updated: {record.last_updated}")
+        
+        print(f"Today's Date: {datetime.today().date()}")
+
 
         # Filter ZipCode objects and update their last_updated field
         zip_codes_to_update = ZipCode.objects.filter(
             zip_code__in=zip_codes,
             last_updated__lt=datetime.today().date()
         )
+
         print(f"Zip codes to process 2: {len(zip_codes_to_update)}")
 
         # Create a list of zip codes for further processing
