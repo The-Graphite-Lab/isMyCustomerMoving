@@ -29,7 +29,12 @@ def get_all_zipcodes(company, zip=None):
         # Fetch the first 10 records in zip_codes
         first_10_records = zip_codes[:10]
         for record in first_10_records:
+            print(f"Zip Code: {record}")
+
+        first_10_records = ZipCode.objects.filter(zip_code__in=zip_codes).order_by('zip_code')[:10]
+        for record in first_10_records:
             print(f"Zip Code: {record.zip_code}, Last Updated: {record.last_updated}")
+
         
         print(f"Today's Date: {datetime.today().date()}")
 
